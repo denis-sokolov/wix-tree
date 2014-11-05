@@ -3,6 +3,9 @@
 var add = require('./add');
 
 module.exports = function($){
+  if ($('body').hasClass('wix-events')) return;
+  $('body').addClass('wix-events');
+
   $('body').on('submit', '.wix-tree .add-subcategory', function(e){
     e.preventDefault();
     var form = $(this);
