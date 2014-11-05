@@ -19,7 +19,6 @@
   },
   "homepage": "https://github.com/denis-sokolov/wix-tree",
   "devDependencies": {
-    "avow": "^2.0.2",
     "browserify": "^6.2.0",
     "jquery": "^2.1.1",
     "jsdom": "^1.1.0",
