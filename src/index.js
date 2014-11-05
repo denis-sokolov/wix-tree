@@ -20,6 +20,27 @@ var add = function($cat, obj){
   }
 };
 
+var addIterative = function($category, obj){
+  var $ = $category.constructor;
+  var queue = [];
+  queue.push([$category, obj]);
+
+  var processSingleChild = function($cat, curr){
+    if (typeof curr === 'string') curr = {name: curr};
+    var $curr = html.category($, curr.name);
+    $cat.append($curr);
+    if (curr.children)
+      queue.push([$curr, curr.children]);
+  };
+
+  while (queue.length) {
+    var task = queue.shift();
+    var $cat = task[0];
+    var children = task[1];
+    children.forEach(processSingleChild.bind(null, $cat));
+  }
+};
+
 module.exports = function($container, structure){
   var $ = $container.constructor;
   return promise(function(resolve){
