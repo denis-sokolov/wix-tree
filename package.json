@@ -1,0 +1,30 @@
+{
+  "name": "wix-tree",
+  "version": "0.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "browserify --standalone wixtree . > dist/build.js",
+    "demo": "npm run build && simple-server ./demo 3000",
+    "test": "tap-prettify test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/denis-sokolov/wix-tree.git"
+  },
+  "author": "Denis Sokolov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/denis-sokolov/wix-tree/issues"
+  },
+  "homepage": "https://github.com/denis-sokolov/wix-tree",
+  "devDependencies": {
+    "avow": "^2.0.2",
+    "browserify": "^6.2.0",
+    "jquery": "^2.1.1",
+    "jsdom": "^1.1.0",
+    "simple-server": "^1.0.1",
+    "tap-prettify": "0.0.2",
+    "tape": "^3.0.1"
+  }
+}
