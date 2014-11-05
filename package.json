@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "build": "browserify --standalone wixtree . > dist/build.js",
+    "build": "mkdir -p dist && browserify --standalone wixtree . > dist/build.js",
     "demo": "npm run build && simple-server ./demo 3000",
     "test": "tap-prettify test/*.js"
   },
