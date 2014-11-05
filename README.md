@@ -8,6 +8,27 @@ Simplest use case to display a form that allows to build a tree.
 wixtree($('.tree'));
 ```
 
+You can initialize the tree with predefined structure:
+
+```javascript
+wixtree($('.tree'), [
+  {
+    name: 'Fruits',
+    children: [
+      'Peach',
+      'Banana',
+      {
+        name: 'Citrus',
+        children: [
+          'Orange',
+          'Lemon'
+        ]
+      }
+    ]
+  }
+]);
+```
+
 All calls to the module return promises.
 
 ### DOM structure

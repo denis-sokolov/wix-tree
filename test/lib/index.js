@@ -28,7 +28,11 @@ api.jquery = function(options){
 api.test = function(name, cb){
   tape(name, function(testApi){
     api.jquery().then(function($){
-      cb(testApi, $);
+      var res = cb(testApi, $);
+      if (res.then)
+        res.then(null, function(err){
+          testApi.fail(err.message);
+        });
     });
   });
 };
@@ -37,10 +41,8 @@ api.test.skip = tape.skip;
 
 api.tree = function(name, cb){
   api.test(name, function(testApi, $){
-    tree($('.tree')).then(function(){
+    return tree($('.tree')).then(function(){
       cb(testApi, $);
-    }).then(null, function(err){
-      testApi.fail(err.message);
     });
   });
 };

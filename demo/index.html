@@ -19,6 +19,21 @@
 <script src="jquery.js"></script>
 <script src="build.js"></script>
 <script>
-wixtree($('.tree'));
+wixtree($('.tree'), [
+  {
+    name: 'Fruits',
+    children: [
+      'Peach',
+      'Banana',
+      {
+        name: 'Citrus',
+        children: [
+          'Orange',
+          'Lemon'
+        ]
+      }
+    ]
+  }
+]);
 </script>
 
