@@ -7,6 +7,8 @@ var jqueryFactory = require('jquery');
 var promise = require('avow');
 var tape = require('tape');
 
+var tree = require('../..');
+
 var api = {};
 
 api.jquery = function(options){
@@ -28,6 +30,37 @@ api.test = function(name, cb){
     api.jquery().then(function($){
       cb(testApi, $);
     });
+  });
+};
+
+api.test.skip = tape.skip;
+
+api.tree = function(name, cb){
+  api.test(name, function(testApi, $){
+    tree($('.tree')).then(function(){
+      cb(testApi, $);
+    }).then(null, function(err){
+      testApi.fail(err.message);
+    });
+  });
+};
+
+api.tree.skip = tape.skip;
+
+api.waitUntilTrue = function(test){
+  return promise(function(resolve){
+    var interval = setInterval(function(){
+      var res = test();
+      if (res) {
+        clearTimeout(timeout);
+        clearInterval(interval);
+        resolve();
+      }
+    }, 5);
+
+    var timeout = setTimeout(function(){
+      clearInterval(interval);
+    }, 1000);
   });
 };
 

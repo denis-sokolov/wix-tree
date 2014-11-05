@@ -26,5 +26,8 @@
     "simple-server": "^1.0.1",
     "tap-prettify": "0.0.2",
     "tape": "^3.0.1"
+  },
+  "dependencies": {
+    "avow": "^2.0.2"
   }
 }

@@ -1,5 +1,19 @@
 <!doctype html>
 <meta charset=utf-8>
+<style>
+  form {
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .tree > form,
+  .category:hover > form {
+    opacity: 0.5;
+  }
+  form:hover {
+    opacity: 1;
+    transition-duration: 0s;
+  }
+</style>
 <title>Wix tree demo</title>
 <div class=tree></div>
 <script src="jquery.js"></script>
